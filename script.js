@@ -1,53 +1,87 @@
 const root = document.documentElement;
+const body = document.body;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const revealItems = document.querySelectorAll('.reveal');
+const parallaxItems = document.querySelectorAll('[data-parallax]');
+const workCards = document.querySelectorAll('.work-card');
+let pointerX = window.innerWidth / 2;
+let pointerY = window.innerHeight / 2;
+let pointerFrame = 0;
 
-if (!reducedMotion) {
-  window.addEventListener('pointermove', (event) => {
-    root.style.setProperty('--cursor-x', `${event.clientX}px`);
-    root.style.setProperty('--cursor-y', `${event.clientY}px`);
-  }, { passive: true });
+const renderPointer = () => {
+  pointerFrame = 0;
+  root.style.setProperty('--mx', `${pointerX}px`);
+  root.style.setProperty('--my', `${pointerY}px`);
+
+  parallaxItems.forEach((item) => {
+    const strength = Number(item.dataset.parallax || 0);
+    const offsetX = (pointerX - window.innerWidth / 2) * strength;
+    const offsetY = (pointerY - window.innerHeight / 2) * strength;
+    item.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+  });
+};
+
+const queuePointer = (event) => {
+  pointerX = event.clientX;
+  pointerY = event.clientY;
+
+  if (!pointerFrame) {
+    pointerFrame = requestAnimationFrame(renderPointer);
+  }
+};
+
+if (!reducedMotion && finePointer) {
+  window.addEventListener('pointermove', queuePointer, { passive: true });
 }
 
-const reveals = document.querySelectorAll('.reveal');
-
 if (reducedMotion || !('IntersectionObserver' in window)) {
-  reveals.forEach((element) => element.classList.add('is-visible'));
+  revealItems.forEach((item) => item.classList.add('is-visible'));
 } else {
-  const observer = new IntersectionObserver((entries, revealObserver) => {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
+      observer.unobserve(entry.target);
     });
   }, {
     threshold: 0.12,
-    rootMargin: '0px 0px -6% 0px'
+    rootMargin: '0px 0px -7% 0px'
   });
 
-  reveals.forEach((element) => observer.observe(element));
+  revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-const magneticItems = document.querySelectorAll('.magnetic');
-
-if (!reducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-  magneticItems.forEach((item) => {
-    item.addEventListener('pointermove', (event) => {
-      const rect = item.getBoundingClientRect();
-      const x = event.clientX - rect.left - rect.width / 2;
-      const y = event.clientY - rect.top - rect.height / 2;
-      item.style.transform = `translate3d(${x * 0.08}px, ${y * 0.08}px, 0)`;
+if (!reducedMotion && finePointer) {
+  workCards.forEach((card) => {
+    card.addEventListener('pointermove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty('--tilt-x', `${y * -1.8}deg`);
+      card.style.setProperty('--tilt-y', `${x * 1.8}deg`);
     });
 
-    item.addEventListener('pointerleave', () => {
-      item.style.transform = 'translate3d(0, 0, 0)';
+    card.addEventListener('pointerleave', () => {
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
     });
   });
 }
 
-const emptyExternalLinks = document.querySelectorAll('a[href="#"][target="_blank"]');
-
-emptyExternalLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-  });
+document.querySelectorAll('[data-empty-link]').forEach((link) => {
+  link.addEventListener('click', (event) => event.preventDefault());
 });
+
+const pulseGlitch = () => {
+  if (reducedMotion || document.hidden) {
+    window.setTimeout(pulseGlitch, 5000);
+    return;
+  }
+
+  body.classList.add('is-glitching');
+  window.setTimeout(() => body.classList.remove('is-glitching'), 90);
+  window.setTimeout(pulseGlitch, 4200 + Math.random() * 4200);
+};
+
+window.setTimeout(pulseGlitch, 2600);

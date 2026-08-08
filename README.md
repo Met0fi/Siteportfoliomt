@@ -1,52 +1,50 @@
 # M/:T Portfolio
 
-Static glitchcore / visual design portfolio built for GitHub Pages.
+Static portfolio for M/:T. HTML, CSS and JavaScript only. Built to run directly on GitHub Pages.
 
-## Files
+## Edit the site
 
-- `index.html` — content and portfolio structure.
-- `styles.css` — palette, background, layout, responsive behavior and visual effects.
-- `script.js` — lightweight interaction and reveal behavior.
-- `.nojekyll` — keeps deployment as plain static files.
+Search `EDIT:` in `index.html` and `styles.css`. Those comments mark the places meant for manual changes.
 
-## Editable areas
+Put artwork in an `assets` folder. A clean layout looks like this:
 
-Search for `EDIT:` in `index.html` and `styles.css`. These are the intentionally marked places for replacing project images, text, software information, social links, email, palette and background.
-
-## Add artwork
-
-1. Create an `assets` folder in the repository.
-2. Upload optimized `.webp`, `.jpg` or `.png` artwork.
-3. In a project card, replace:
-
-```css
---project-image: none;
+```text
+assets/
+├── background.webp
+├── work-01.webp
+├── work-02.webp
+├── work-03.webp
+├── work-04.webp
+├── work-05.webp
+└── work-06.webp
 ```
 
-with:
+Each work card has an inline custom property:
 
-```css
---project-image: url('./assets/my-work.webp');
+```html
+style="--art: none;"
 ```
 
-## Add the background
+Replace it with your file:
 
-In `styles.css`, find the `EDIT:` marker above `body::before` and replace:
-
-```css
-background-image: none;
+```html
+style="--art: url('./assets/work-01.webp');"
 ```
 
-with:
+The site background is marked with `EDIT:` in `styles.css`. Replace `background-image: none;` with:
 
 ```css
 background-image: url('./assets/background.webp');
 ```
 
-## Publish with GitHub Pages
+The four external buttons are marked in `index.html`. Replace their URLs, labels and notes there.
 
-Open the repository on GitHub, then go to `Settings` -> `Pages`. Under `Build and deployment`, choose `Deploy from a branch`. Select `main` and `/(root)`, then save.
+## GitHub Pages
 
-For this project repository, the default Pages address will follow the project-site format:
+Open the repository and go to `Settings` -> `Pages`.
+
+Under `Build and deployment`, select `Deploy from a branch`, then choose `main` and `/(root)`. Save the setting.
+
+Project URL:
 
 `https://met0fi.github.io/Siteportfoliomt/`
