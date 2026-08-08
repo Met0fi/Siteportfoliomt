@@ -80,7 +80,6 @@ img {
 
 .site-bg {
   z-index: -5;
-  /* IMAGE BACKGROUND: replace none with url('./assets/background.webp'). */
   background-image: none;
   background-color: var(--bg);
   background-position: center;
