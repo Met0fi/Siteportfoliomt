@@ -1,12 +1,10 @@
 # M/:T Portfolio
 
-Static portfolio for M/:T. HTML, CSS and JavaScript only. Built to run directly on GitHub Pages.
+Static HTML, CSS and JavaScript portfolio built for GitHub Pages.
 
-## Edit the site
+## Images
 
-Search `EDIT:` in `index.html` and `styles.css`. Those comments mark the places meant for manual changes.
-
-Put artwork in an `assets` folder. A clean layout looks like this:
+Put artwork in an `assets` folder:
 
 ```text
 assets/
@@ -19,25 +17,35 @@ assets/
 └── work-06.webp
 ```
 
-Each work card has an inline custom property:
+In `index.html`, image slots are marked with comments beginning with `IMAGE`.
+
+Replace:
 
 ```html
 style="--art: none;"
 ```
 
-Replace it with your file:
+with:
 
 ```html
 style="--art: url('./assets/work-01.webp');"
 ```
 
-The site background is marked with `EDIT:` in `styles.css`. Replace `background-image: none;` with:
+The site background has one `IMAGE BACKGROUND` comment in `styles.css`. Replace:
+
+```css
+background-image: none;
+```
+
+with:
 
 ```css
 background-image: url('./assets/background.webp');
 ```
 
-The four external buttons are marked in `index.html`. Replace their URLs, labels and notes there.
+## Links
+
+The four link rows are Telegram, Instagram, GitHub and Boosty. Their `href` locations are marked with comments beginning with `LINK` in `index.html`.
 
 ## GitHub Pages
 
