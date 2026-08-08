@@ -1,0 +1,296 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body,
+main,
+section,
+header,
+footer {
+  min-width: 0;
+}
+
+.frame {
+  width: 100%;
+  max-width: none;
+}
+
+.section-head {
+  grid-template-columns: clamp(48px, 5vw, 82px) minmax(0, 1fr);
+}
+
+.work-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.2vw, 34px);
+}
+
+.work-card-a,
+.work-card-b,
+.work-card-c,
+.work-card-d,
+.work-card-e,
+.work-card-f {
+  grid-column: auto;
+  margin-top: 0;
+}
+
+.work-card .art,
+.work-card-a .art,
+.work-card-d .art {
+  aspect-ratio: 4 / 3;
+}
+
+.work-meta {
+  grid-template-columns: clamp(36px, 4vw, 52px) minmax(0, 1fr);
+  gap: clamp(10px, 1.4vw, 18px);
+  min-height: clamp(78px, 7vw, 98px);
+}
+
+.work-meta h3 {
+  overflow: hidden;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: clamp(1.3rem, 2vw, 2.2rem);
+}
+
+.link-row {
+  grid-template-columns: clamp(42px, 5vw, 80px) minmax(0, 1fr) 42px;
+}
+
+.link-row b {
+  grid-column: 3;
+  justify-self: end;
+}
+
+.hero-title,
+.hero-copy,
+.about-copy,
+.profile-card,
+.link-row,
+.work-card {
+  min-width: 0;
+}
+
+@media (max-width: 88rem) {
+  .topbar-signal {
+    display: none;
+  }
+
+  .topbar {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .nav {
+    justify-self: end;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    min-height: auto;
+    align-content: start;
+    gap: clamp(28px, 5vw, 54px);
+    padding-top: clamp(56px, 8vw, 96px);
+  }
+
+  .hero-copy {
+    width: min(100%, 760px);
+    max-width: 760px;
+    justify-self: end;
+  }
+
+  .hero-sticker {
+    position: relative;
+    top: auto;
+    right: auto;
+    justify-self: end;
+    margin-top: -18px;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+  }
+
+  .about-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .profile-card {
+    width: min(100%, 760px);
+  }
+}
+
+@media (max-width: 56rem) {
+  :root {
+    --pad: clamp(16px, 4vw, 28px);
+  }
+
+  .section {
+    padding-block: clamp(68px, 11vw, 108px);
+  }
+
+  .work-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work-card-a,
+  .work-card-b,
+  .work-card-c,
+  .work-card-d,
+  .work-card-e,
+  .work-card-f {
+    grid-column: 1;
+  }
+
+  .title-main {
+    font-size: clamp(5.4rem, 25vw, 11rem);
+  }
+
+  .title-sub {
+    font-size: clamp(2.4rem, 10vw, 5rem);
+  }
+
+  .hero::before {
+    width: min(82vw, 620px);
+    left: -20vw;
+  }
+
+  .sedation-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding-block: 34px;
+  }
+
+  .sedation-inner > span:first-child,
+  .sedation-code {
+    writing-mode: initial;
+    transform: none;
+  }
+
+  .sedation-code {
+    justify-self: end;
+  }
+
+  .link-row {
+    grid-template-columns: 42px minmax(0, 1fr) 32px;
+    min-height: 100px;
+    gap: 12px;
+  }
+
+  .link-row strong {
+    font-size: clamp(2.2rem, 10vw, 4.2rem);
+  }
+}
+
+@media (max-width: 38rem) {
+  :root {
+    --pad: 15px;
+    font-size: 16px;
+  }
+
+  .topbar {
+    min-height: 58px;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav {
+    gap: 9px;
+    font-size: 0.7rem;
+    letter-spacing: 0.035em;
+  }
+
+  .hero {
+    gap: 26px;
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .hero-sticker {
+    display: none;
+  }
+
+  .hero-copy {
+    padding-left: 16px;
+  }
+
+  .section-head {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: clamp(3.5rem, 18vw, 5.5rem);
+  }
+
+  .work-meta {
+    grid-template-columns: 34px minmax(0, 1fr);
+    min-height: 78px;
+    padding: 13px 12px;
+  }
+
+  .work-meta h3 {
+    font-size: clamp(1.25rem, 6vw, 1.8rem);
+  }
+
+  .about-copy .about-lead {
+    font-size: clamp(2.2rem, 10vw, 3.6rem);
+  }
+
+  .profile-card dl div {
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .sedation-inner p {
+    font-size: clamp(2rem, 9vw, 3.2rem);
+  }
+
+  .link-row {
+    grid-template-columns: 34px minmax(0, 1fr) 26px;
+    min-height: 92px;
+    gap: 8px;
+  }
+
+  .link-row strong {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+  }
+
+  .footer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 130px;
+    gap: 14px;
+  }
+
+  .footer pre {
+    display: none;
+  }
+}
+
+@media (max-width: 22rem) {
+  :root {
+    --pad: 11px;
+  }
+
+  .nav {
+    gap: 6px;
+    font-size: 0.64rem;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+  }
+
+  .title-main {
+    font-size: 4.8rem;
+  }
+
+  .title-sub {
+    font-size: 2rem;
+  }
+}
