@@ -9,15 +9,22 @@ let pointerX = window.innerWidth / 2;
 let pointerY = window.innerHeight / 2;
 let pointerFrame = 0;
 
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
 const renderPointer = () => {
   pointerFrame = 0;
   root.style.setProperty('--mx', `${pointerX}px`);
   root.style.setProperty('--my', `${pointerY}px`);
 
   parallaxItems.forEach((item) => {
+    if (item.classList.contains('hero-title') || window.innerWidth < 1400) {
+      item.style.transform = 'none';
+      return;
+    }
+
     const strength = Number(item.dataset.parallax || 0);
-    const offsetX = (pointerX - window.innerWidth / 2) * strength;
-    const offsetY = (pointerY - window.innerHeight / 2) * strength;
+    const offsetX = clamp((pointerX - window.innerWidth / 2) * strength, -6, 6);
+    const offsetY = clamp((pointerY - window.innerHeight / 2) * strength, -6, 6);
     item.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
   });
 };
@@ -34,6 +41,14 @@ const queuePointer = (event) => {
 if (!reducedMotion && finePointer) {
   window.addEventListener('pointermove', queuePointer, { passive: true });
 }
+
+window.addEventListener('resize', () => {
+  parallaxItems.forEach((item) => {
+    if (window.innerWidth < 1400 || item.classList.contains('hero-title')) {
+      item.style.transform = 'none';
+    }
+  });
+}, { passive: true });
 
 if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
