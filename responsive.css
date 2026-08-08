@@ -1,6 +1,9 @@
 html {
+  width: 100%;
+  max-width: 100%;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body,
@@ -8,21 +11,85 @@ main,
 section,
 header,
 footer {
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
+}
+
+body {
+  overflow-x: clip;
 }
 
 .frame {
   width: 100%;
   max-width: none;
+  min-width: 0;
+  padding-left: max(var(--pad), env(safe-area-inset-left));
+  padding-right: max(var(--pad), env(safe-area-inset-right));
+}
+
+.hero {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: clip;
+}
+
+.hero-title {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  transform: none !important;
+}
+
+.kicker {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.title-main {
+  width: fit-content;
+  max-width: 100%;
+  text-indent: 0;
+  margin-left: 0;
+  font-size: clamp(4.5rem, 16vw, 17rem);
+  letter-spacing: -0.095em;
+}
+
+.title-sub {
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(2.1rem, 5.4vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  overflow-wrap: normal;
+}
+
+.hero-copy,
+.about-copy,
+.profile-card,
+.link-row,
+.work-card,
+.work-meta {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .section-head {
   grid-template-columns: clamp(48px, 5vw, 82px) minmax(0, 1fr);
+  max-width: 100%;
+}
+
+.section-head h2 {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .work-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(18px, 2.2vw, 34px);
+  width: 100%;
+  max-width: 100%;
 }
 
 .work-card-a,
@@ -38,6 +105,7 @@ footer {
 .work-card .art,
 .work-card-a .art,
 .work-card-d .art {
+  width: 100%;
   aspect-ratio: 4 / 3;
 }
 
@@ -48,29 +116,44 @@ footer {
 }
 
 .work-meta h3 {
+  min-width: 0;
+  max-width: 100%;
   overflow: hidden;
-  overflow-wrap: normal;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-size: clamp(1.3rem, 2vw, 2.2rem);
+}
+
+.about-layout {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sedation-inner {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.sedation-inner p {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .link-row {
   grid-template-columns: clamp(42px, 5vw, 80px) minmax(0, 1fr) 42px;
 }
 
+.link-row strong {
+  min-width: 0;
+  max-width: 100%;
+  font-size: clamp(2.3rem, 5vw, 5.5rem);
+  overflow-wrap: anywhere;
+}
+
 .link-row b {
   grid-column: 3;
   justify-self: end;
-}
-
-.hero-title,
-.hero-copy,
-.about-copy,
-.profile-card,
-.link-row,
-.work-card {
-  min-width: 0;
 }
 
 @media (max-width: 88rem) {
@@ -105,6 +188,7 @@ footer {
     position: relative;
     top: auto;
     right: auto;
+    max-width: 100%;
     justify-self: end;
     margin-top: -18px;
   }
@@ -122,15 +206,7 @@ footer {
   }
 }
 
-@media (max-width: 56rem) {
-  :root {
-    --pad: clamp(16px, 4vw, 28px);
-  }
-
-  .section {
-    padding-block: clamp(68px, 11vw, 108px);
-  }
-
+@media (max-width: 70rem) {
   .work-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -145,11 +221,21 @@ footer {
   }
 
   .title-main {
-    font-size: clamp(5.4rem, 25vw, 11rem);
+    font-size: clamp(4.7rem, 22vw, 10.5rem);
   }
 
   .title-sub {
-    font-size: clamp(2.4rem, 10vw, 5rem);
+    font-size: clamp(2.2rem, 8.5vw, 4.8rem);
+  }
+}
+
+@media (max-width: 56rem) {
+  :root {
+    --pad: clamp(16px, 4vw, 28px);
+  }
+
+  .section {
+    padding-block: clamp(68px, 11vw, 108px);
   }
 
   .hero::before {
@@ -177,10 +263,6 @@ footer {
     grid-template-columns: 42px minmax(0, 1fr) 32px;
     min-height: 100px;
     gap: 12px;
-  }
-
-  .link-row strong {
-    font-size: clamp(2.2rem, 10vw, 4.2rem);
   }
 }
 
@@ -217,6 +299,16 @@ footer {
 
   .hero-copy {
     padding-left: 16px;
+  }
+
+  .title-main {
+    font-size: clamp(4.8rem, 26vw, 8rem);
+    letter-spacing: -0.08em;
+  }
+
+  .title-sub {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    letter-spacing: -0.04em;
   }
 
   .section-head {
@@ -258,12 +350,11 @@ footer {
   }
 
   .link-row strong {
-    font-size: clamp(2rem, 10vw, 3.4rem);
+    font-size: clamp(1.9rem, 10vw, 3.2rem);
   }
 
   .footer {
     grid-template-columns: minmax(0, 1fr) auto;
-    min-height: 130px;
     gap: 14px;
   }
 
@@ -272,9 +363,13 @@ footer {
   }
 }
 
-@media (max-width: 22rem) {
+@media (max-width: 24rem) {
   :root {
-    --pad: 11px;
+    --pad: 12px;
+  }
+
+  .topbar {
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .nav {
@@ -282,15 +377,21 @@ footer {
     font-size: 0.64rem;
   }
 
-  .logo {
-    font-size: 1.15rem;
-  }
-
   .title-main {
-    font-size: 4.8rem;
+    font-size: clamp(4.2rem, 24vw, 6.2rem);
   }
 
   .title-sub {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 9vw, 2.8rem);
+  }
+
+  .link-row {
+    grid-template-columns: 28px minmax(0, 1fr) 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] {
+    transform: none !important;
   }
 }
