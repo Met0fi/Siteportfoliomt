@@ -7,6 +7,7 @@ const parallaxItems = document.querySelectorAll('[data-parallax]');
 const workCards = document.querySelectorAll('.work-card');
 const cursorTitle = document.querySelector('[data-cursor-title]');
 const cursorTitleParts = cursorTitle ? cursorTitle.querySelectorAll('.title-main, .title-sub') : [];
+const cursorTitleBoundary = cursorTitle?.closest('.hero');
 let pointerX = window.innerWidth / 2;
 let pointerY = window.innerHeight / 2;
 let pointerFrame = 0;
@@ -33,9 +34,10 @@ const getCursorTitleBounds = () => {
 };
 
 const renderCursorTitle = () => {
-  if (!cursorTitle) return;
+  if (!cursorTitle || !cursorTitleBoundary) return;
 
   const bounds = getCursorTitleBounds();
+  const boundary = cursorTitleBoundary.getBoundingClientRect();
   const baseLeft = bounds.left - titleOffsetX;
   const baseRight = bounds.right - titleOffsetX;
   const baseTop = bounds.top - titleOffsetY;
@@ -43,10 +45,10 @@ const renderCursorTitle = () => {
   const edge = 10;
   const desiredX = clamp((pointerX / window.innerWidth - 0.5) * 16, -8, 8);
   const desiredY = clamp((pointerY / window.innerHeight - 0.5) * 10, -5, 5);
-  const minX = edge - baseLeft;
-  const maxX = window.innerWidth - edge - baseRight;
-  const minY = edge - baseTop;
-  const maxY = window.innerHeight - edge - baseBottom;
+  const minX = boundary.left + edge - baseLeft;
+  const maxX = boundary.right - edge - baseRight;
+  const minY = boundary.top + edge - baseTop;
+  const maxY = boundary.bottom - edge - baseBottom;
 
   titleOffsetX = minX <= maxX ? clamp(desiredX, minX, maxX) : 0;
   titleOffsetY = minY <= maxY ? clamp(desiredY, minY, maxY) : 0;
