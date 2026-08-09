@@ -330,6 +330,18 @@ h1 {
   margin: 0;
 }
 
+[data-cursor-title] {
+  --title-x: 0px;
+  --title-y: 0px;
+}
+
+[data-cursor-title] .title-main,
+[data-cursor-title] .title-sub {
+  transform: translate3d(var(--title-x), var(--title-y), 0);
+  transition: transform 120ms ease-out;
+  will-change: transform;
+}
+
 .title-main {
   position: relative;
   display: block;

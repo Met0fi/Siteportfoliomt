@@ -5,19 +5,63 @@ const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matc
 const revealItems = document.querySelectorAll('.reveal');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
 const workCards = document.querySelectorAll('.work-card');
+const cursorTitle = document.querySelector('[data-cursor-title]');
+const cursorTitleParts = cursorTitle ? cursorTitle.querySelectorAll('.title-main, .title-sub') : [];
 let pointerX = window.innerWidth / 2;
 let pointerY = window.innerHeight / 2;
 let pointerFrame = 0;
+let titleOffsetX = 0;
+let titleOffsetY = 0;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+const getCursorTitleBounds = () => {
+  const rects = Array.from(cursorTitleParts, (part) => {
+    const range = document.createRange();
+    range.selectNodeContents(part);
+    return range.getBoundingClientRect();
+  }).filter((rect) => rect.width > 0 && rect.height > 0);
+
+  if (!rects.length) return cursorTitle.getBoundingClientRect();
+
+  return {
+    left: Math.min(...rects.map((rect) => rect.left)),
+    right: Math.max(...rects.map((rect) => rect.right)),
+    top: Math.min(...rects.map((rect) => rect.top)),
+    bottom: Math.max(...rects.map((rect) => rect.bottom))
+  };
+};
+
+const renderCursorTitle = () => {
+  if (!cursorTitle) return;
+
+  const bounds = getCursorTitleBounds();
+  const baseLeft = bounds.left - titleOffsetX;
+  const baseRight = bounds.right - titleOffsetX;
+  const baseTop = bounds.top - titleOffsetY;
+  const baseBottom = bounds.bottom - titleOffsetY;
+  const edge = 10;
+  const desiredX = clamp((pointerX / window.innerWidth - 0.5) * 16, -8, 8);
+  const desiredY = clamp((pointerY / window.innerHeight - 0.5) * 10, -5, 5);
+  const minX = edge - baseLeft;
+  const maxX = window.innerWidth - edge - baseRight;
+  const minY = edge - baseTop;
+  const maxY = window.innerHeight - edge - baseBottom;
+
+  titleOffsetX = minX <= maxX ? clamp(desiredX, minX, maxX) : 0;
+  titleOffsetY = minY <= maxY ? clamp(desiredY, minY, maxY) : 0;
+  cursorTitle.style.setProperty('--title-x', `${titleOffsetX}px`);
+  cursorTitle.style.setProperty('--title-y', `${titleOffsetY}px`);
+};
 
 const renderPointer = () => {
   pointerFrame = 0;
   root.style.setProperty('--mx', `${pointerX}px`);
   root.style.setProperty('--my', `${pointerY}px`);
+  renderCursorTitle();
 
   parallaxItems.forEach((item) => {
-    if (item.classList.contains('hero-title') || window.innerWidth < 1400) {
+    if (window.innerWidth < 1400) {
       item.style.transform = 'none';
       return;
     }
@@ -43,8 +87,13 @@ if (!reducedMotion && finePointer) {
 }
 
 window.addEventListener('resize', () => {
+  titleOffsetX = 0;
+  titleOffsetY = 0;
+  cursorTitle?.style.setProperty('--title-x', '0px');
+  cursorTitle?.style.setProperty('--title-y', '0px');
+
   parallaxItems.forEach((item) => {
-    if (window.innerWidth < 1400 || item.classList.contains('hero-title')) {
+    if (window.innerWidth < 1400) {
       item.style.transform = 'none';
     }
   });
