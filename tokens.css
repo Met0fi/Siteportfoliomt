@@ -1,0 +1,57 @@
+/* Hallmark · macrostructure: Catalogue · tone: restrained glitchcore · anchor hue: violet
+ * theme: custom · vibe: quiet gallery for damaged images
+ * paper: oklch(96% 0.008 85) · accent: oklch(43% 0.13 305)
+ * display: Sitka Display / Literata · body: Sitka Text / Literata · utility: IBM Plex Mono
+ * axes: light / roman-serif / cool · nav: N9 edge-aligned · footer: Ft1 minimal
+ * enrichment: none · pre-emit critique: P4 H4 E4 S5 R5 V4
+ */
+:root {
+  color-scheme: light;
+  --color-paper: oklch(96% 0.008 85);
+  --color-ink: oklch(22% 0.009 300);
+  --color-muted: oklch(47% 0.012 300);
+  --color-accent: oklch(43% 0.13 305);
+  --color-accent-soft: oklch(91% 0.033 305);
+  --color-rule: oklch(77% 0.012 85);
+  --color-rule-strong: oklch(44% 0.013 300);
+  --color-image-bed: oklch(91% 0.008 85);
+  --color-viewer: oklch(17% 0.007 300);
+  --color-viewer-ink: oklch(94% 0.009 85);
+  --color-viewer-muted: oklch(77% 0.009 85);
+  --color-viewer-rule: oklch(40% 0.009 300);
+  --color-viewer-hover: oklch(26% 0.012 300);
+  --color-backdrop: oklch(10% 0.008 300 / 88%);
+  --color-error: oklch(76% 0.1 35);
+  --color-transparent: oklch(0% 0 0 / 0%);
+  --font-display: "Sitka Display", "Sitka", "Literata", serif;
+  --font-body: "Sitka Text", "Sitka", "Literata", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-section: 128px;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-body: clamp(1rem, 0.92rem + 0.24vw, 1.125rem);
+  --text-lead: clamp(1.25rem, 1.03rem + 0.7vw, 1.625rem);
+  --text-heading: clamp(1.75rem, 1.25rem + 1.6vw, 2.75rem);
+  --text-statement: clamp(2.25rem, 1.7rem + 1.8vw, 4rem);
+  --text-display: clamp(5rem, 1rem + 12vw, 13rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-short: 140ms;
+  --dur-medium: 220ms;
+  --rule-thin: 1px;
+  --rule-focus: 2px;
+  --radius-none: 0;
+  --page-width: 1320px;
+  --page-gutter: clamp(20px, 4vw, 64px);
+}
