@@ -17,14 +17,13 @@ function showArtwork(index) {
   currentIndex = index;
   const link = artworkLinks[index];
   const thumbnail = link.querySelector('img');
-  const filename = link.getAttribute('href').split('/').pop();
   if (pendingImage) {
     pendingImage.onload = null;
     pendingImage.onerror = null;
   }
   const request = new Image();
   pendingImage = request;
-  title.textContent = filename;
+  title.textContent = `Artwork ${index + 1}`;
   counter.textContent = `${index + 1} / ${artworkLinks.length}`;
   previous.disabled = index === 0;
   next.disabled = index === artworkLinks.length - 1;

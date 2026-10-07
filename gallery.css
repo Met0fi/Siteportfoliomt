@@ -1,7 +1,3 @@
-/* Hallmark · macrostructure: Catalogue · tone: restrained dark glitchcore · anchor hue: magenta
- * theme: custom · nav: N9 edge-aligned · footer: Ft1 minimal
- * pre-emit critique: P4 H4 E4 S5 R5 V4
- */
 @import url("./tokens.css");
 
 @font-face {
@@ -109,7 +105,6 @@ img { display: block; width: 100%; height: auto; }
 .view-cue { position: absolute; right: var(--space-sm); bottom: var(--space-sm); padding: var(--space-xs) var(--space-sm); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-mono); font-size: var(--text-xs); white-space: nowrap; opacity: 0; transform: translateY(4px); transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out); }
 .art-link:hover .view-cue, .art-link:focus-visible .view-cue { opacity: 1; transform: none; }
 .art-link:focus-visible { outline: var(--rule-focus) solid var(--color-accent); }
-figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-xs); padding-top: var(--space-sm); color: var(--color-muted); font-family: var(--font-mono); font-size: var(--text-xs); }
 .about { border-top: var(--rule-thin) solid var(--color-rule-strong); padding-block: var(--space-3xl) var(--space-section); }
 .about-layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-3xl); }
 .about-heading h2 { font-size: var(--text-heading); }
