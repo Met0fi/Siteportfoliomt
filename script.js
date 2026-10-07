@@ -97,3 +97,43 @@ viewer.addEventListener('close', () => {
   }
   if (returnFocus && document.contains(returnFocus)) returnFocus.focus({ preventScroll: true });
 });
+
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const pointerPreference = window.matchMedia('(hover: hover) and (pointer: fine)');
+const ticker = document.querySelector('.hero-ticker');
+const tickerToggle = document.querySelector('.ticker-toggle');
+let pointerFrame = 0;
+let pointerX = 0;
+let pointerY = 0;
+
+function syncMotionPreference() {
+  const reduced = motionPreference.matches;
+  tickerToggle.hidden = reduced;
+  document.documentElement.classList.toggle('has-pointer-effect', !reduced && pointerPreference.matches);
+  if (reduced && pointerFrame) {
+    cancelAnimationFrame(pointerFrame);
+    pointerFrame = 0;
+  }
+}
+
+function renderHaloPosition() {
+  pointerFrame = 0;
+  document.documentElement.style.setProperty('--pointer-x', `${pointerX}px`);
+  document.documentElement.style.setProperty('--pointer-y', `${pointerY}px`);
+}
+
+window.addEventListener('pointermove', event => {
+  if (motionPreference.matches || !pointerPreference.matches || viewer.open) return;
+  pointerX = event.clientX;
+  pointerY = event.clientY;
+  if (!pointerFrame) pointerFrame = requestAnimationFrame(renderHaloPosition);
+}, { passive: true });
+tickerToggle.addEventListener('click', () => {
+  const paused = ticker.classList.toggle('is-paused');
+  tickerToggle.setAttribute('aria-pressed', String(paused));
+  tickerToggle.setAttribute('aria-label', paused ? 'Play decorative strip' : 'Pause decorative strip');
+  tickerToggle.querySelector('span').textContent = paused ? '▷' : 'Ⅱ';
+});
+motionPreference.addEventListener('change', syncMotionPreference);
+pointerPreference.addEventListener('change', syncMotionPreference);
+syncMotionPreference();

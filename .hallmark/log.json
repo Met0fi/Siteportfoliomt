@@ -10,5 +10,17 @@
     "enrichment": "none",
     "brief": "M/:T portfolio: Sitka-led gallery, original artworks, restrained static glitch",
     "verification": "Main skill rules only; referenced Hallmark files were not supplied. No 58-gate score claimed."
+  },
+  {
+    "date": "2026-10-07",
+    "macrostructure": "Catalogue",
+    "theme": "custom",
+    "theme_axes": "dark / roman-serif / magenta",
+    "vibe": "dark gallery with original glitch signatures",
+    "nav": "N9 edge-aligned",
+    "footer": "Ft1 minimal",
+    "enrichment": "original ASCII cat and bounded symbol strip",
+    "brief": "User revision: dark colours, preserved features. Retain Catalogue layout and Sitka-led typography; restore chromatic split identity, outlined subtitle, ASCII cat, moving symbols and gentle cursor glow without flashes or artwork distortion.",
+    "verification": "Responsive browser checks at 320, 375, 414, 600, 768, 900, 1024, 1440 and 1920 px; keyboard viewer, no-JS links, image failure recovery, pause/resume strip and live reduced-motion settings. Main skill rules only; referenced Hallmark files were not supplied. No 58-gate score claimed."
   }
 ]
