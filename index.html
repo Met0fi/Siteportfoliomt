@@ -3,108 +3,112 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0b090d">
+  <meta name="theme-color" content="oklch(14% 0.014 310)">
   <meta name="color-scheme" content="dark">
   <meta name="darkreader-lock">
   <meta name="description" content="M/:T. Visual designer, glitchcore designer and psychological artist working mainly in TouchDesigner.">
   <title>M/:T / VISUAL + GLITCHCORE</title>
-  <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./responsive.css">
+  <link rel="preload" href="./assets/fonts/Literata.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./gallery.css">
   <script src="./script.js" defer></script>
 </head>
 <body>
-  <div class="site-bg" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="scan" aria-hidden="true"></div>
   <div class="cursor-haze" aria-hidden="true"></div>
-
-  <header class="topbar">
+  <a class="skip-link" href="#work">Skip to work</a>
+  <header class="topbar frame">
     <a class="logo" href="#top" aria-label="M slash colon T home">M/:T</a>
     <nav class="nav" aria-label="Primary navigation">
-      <a href="#work">WORK</a>
-      <a href="#about">ABOUT</a>
-      <a href="#links">LINKS</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#links">Links <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
   <main id="top">
     <section class="hero frame">
-      <div class="hero-title reveal">
-        <p class="kicker">M/:T / VISUAL + GLITCHCORE / TOUCHDESIGNER</p>
-        <h1 aria-label="M slash colon T" data-cursor-title>
-          <span class="title-main" data-ghost="M/:T">M/:T</span>
-          <span class="title-sub">VISUAL DESIGNER</span>
-        </h1>
+      <div class="hero-title">
+        <p class="hero-id">M/:T / VISUAL + GLITCHCORE / TOUCHDESIGNER</p>
+        <h1 aria-label="M slash colon T"><span class="signature" data-echo="M/:T">M/:T</span></h1>
+        <p class="practice">VISUAL DESIGNER</p>
       </div>
 
-      <div class="hero-copy reveal">
-        <p class="lead">I’m M/:T. I make glitch-driven visual work, usually from psychological pressure I need to put somewhere.</p>
-        <p>TouchDesigner is the main tool. I move into 3D or other software when a piece needs a different kind of texture or damage.</p>
-        <a class="jump-link" href="#work">OPEN WORK <span aria-hidden="true">[↓]</span></a>
-      </div>
-
-      <div class="hero-sticker reveal" aria-hidden="true" data-parallax="-0.018">
-        <pre>  /\_/\\
+      <div class="hero-copy">
+        <pre class="hero-sticker" aria-hidden="true">  /\_/\\
  ( o.o )
   &gt; ^ &lt;   &lt;3
  M/:T_//_</pre>
+        <p>I’m M/:T. I make glitch-driven visual work, usually from psychological pressure I need to put somewhere.</p>
+        <p class="tool-note">TouchDesigner is the main tool. I move into 3D or other software when a piece needs a different kind of texture or damage.</p>
+        <a class="text-link" href="#work">See the work <span aria-hidden="true">↓</span></a>
       </div>
-
-      <div class="hero-slices" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-
-      <div class="hero-ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
-          <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
-          <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
-          <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
+      <div class="hero-ticker">
+        <div class="ticker-window" aria-hidden="true">
+          <div class="ticker-track">
+            <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
+            <span>&lt;&gt;//\\__++==**::;;[[]]{{}}(())^^~~--..__|/\|__&lt;&gt;&lt;&gt;//\\||::++==**[[]]{{}}^^~~__--..//\\&lt;&gt;|:|:|__++==**~~^^__//\\__&lt;&gt;&lt;&gt;::[[]]++==**^^~~</span>
+          </div>
         </div>
+        <button class="ticker-toggle" type="button" aria-label="Pause decorative strip" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span></button>
       </div>
     </section>
 
     <section class="work frame section" id="work" aria-labelledby="work-title">
-      <header class="section-head reveal">
-        <span class="section-id">[01]</span>
-        <h2 id="work-title">WORK</h2>
+      <header class="section-head">
+        <h2 id="work-title">Work</h2>
+        <p>TouchDesigner, 3D &amp; damaged images.</p>
       </header>
 
       <div class="work-grid">
-        <article class="work-card work-card-a reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 01" style="--art: url('./assets/work-01.webp');"></div>
-        </article>
-
-        <article class="work-card work-card-b reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 02" style="--art: url('./assets/work-02.webp');"></div>
-        </article>
-
-        <article class="work-card work-card-c reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 03" style="--art: url('./assets/work-03.webp');"></div>
-        </article>
-
-        <article class="work-card work-card-d reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 04" style="--art: url('./assets/work-04.webp');"></div>
-        </article>
-
-        <article class="work-card work-card-e reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 05" style="--art: url('./assets/work-05.webp');"></div>
-        </article>
-
-        <article class="work-card work-card-f reveal">
-          <div class="art" role="img" aria-label="Portfolio artwork 06" style="--art: url('./assets/work-06.webp');"></div>
-        </article>
+        <aside class="work-note">
+          <p>Visual<br>sedation.</p>
+          <p class="note-copy">I just love gl1tches.<br>They help me realize something...</p>
+        </aside>
+        <figure class="work-card work-card-a">
+          <a class="art-link" href="./assets/work-01.webp" data-artwork aria-label="Open artwork 1: pale sculpture with purple lettering">
+            <img src="./assets/work-01.webp" width="2048" height="1152" alt="Pale sculptural figure against a scratched white surface with purple distorted lettering." fetchpriority="high">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
+        <figure class="work-card work-card-b">
+          <a class="art-link" href="./assets/work-02.webp" data-artwork aria-label="Open artwork 2: figure in an orange architectural scene">
+            <img src="./assets/work-02.webp" width="2048" height="1152" alt="A dark figure among orange block-like buildings, with bright pink edges against a smoky sky." loading="lazy" decoding="async">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
+        <figure class="work-card work-card-c">
+          <a class="art-link" href="./assets/work-03.webp" data-artwork aria-label="Open artwork 3: red marks over a damaged amber image">
+            <img src="./assets/work-03.webp" width="2048" height="1080" alt="Red gestural marks over a dark shape surrounded by damaged amber textures and fine line drawings." loading="lazy" decoding="async">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
+        <figure class="work-card work-card-d">
+          <a class="art-link" href="./assets/work-04.webp" data-artwork aria-label="Open artwork 4: purple metallic flower">
+            <img src="./assets/work-04.webp" width="2048" height="1536" alt="A metallic purple flower floating over a fragmented landscape, with a bright pink strip at the bottom." loading="lazy" decoding="async">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
+        <figure class="work-card work-card-e">
+          <a class="art-link" href="./assets/work-05.webp" data-artwork aria-label="Open artwork 5: dark figure and white drawings on yellow">
+            <img src="./assets/work-05.webp" width="2048" height="1152" alt="A dark sculptural figure against a luminous yellow panel, with layered white line drawings." loading="lazy" decoding="async">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
+        <figure class="work-card work-card-f">
+          <a class="art-link" href="./assets/work-06.webp" data-artwork aria-label="Open artwork 6: dark circular form in a glitched landscape">
+            <img src="./assets/work-06.webp" width="2048" height="1536" alt="A dark circular form in a green landscape broken into displaced pixels, with red and white lettering at its center." loading="lazy" decoding="async">
+            <span class="view-cue" aria-hidden="true">View full size ↗</span>
+          </a>
+        </figure>
       </div>
     </section>
 
     <section class="about frame section" id="about" aria-labelledby="about-title">
-      <header class="section-head reveal">
-        <span class="section-id">[02]</span>
-        <h2 id="about-title">ABOUT</h2>
-      </header>
-
       <div class="about-layout">
-        <div class="about-copy reveal">
+        <header class="about-heading">
+          <h2 id="about-title">About</h2>
+          <p>Breaks stay<br>in the image.</p>
+        </header>
+        <div class="about-copy">
           <p class="about-lead">I’m M/:T. I work with glitch, damaged images and 3D material, mostly in TouchDesigner.</p>
           <p>I use the work to put psychological pressure somewhere visible. I keep breaks, artifacts and rough edges when they carry that pressure instead of cleaning them up for polish.</p>
           <p>TouchDesigner is where most pieces begin. I switch to Glitch Lab or other tools when the image needs a different kind of texture, distortion or spatial treatment.</p>
@@ -112,32 +116,42 @@
       </div>
     </section>
 
-    <section class="sedation-band" aria-label="Practice note">
-      <div class="frame sedation-inner reveal">
-        <span>VISUAL SEDATION</span>
-        <p>I just love gl1tches. They help me realize something...</p>
-      </div>
-    </section>
-
     <section class="links frame section" id="links" aria-labelledby="links-title">
-      <header class="section-head reveal">
-        <span class="section-id">[03]</span>
-        <h2 id="links-title">LINKS</h2>
+      <header class="links-heading">
+        <h2 id="links-title">Elsewhere</h2>
+        <p>Find me here.</p>
       </header>
 
-      <div class="link-list reveal">
-        <a class="link-row" href="https://t.me/metglitch" target="_blank" rel="noreferrer"><span>01</span><strong>TELEGRAM</strong><b aria-hidden="true">↗</b></a>
-        <a class="link-row" href="https://www.instagram.com/met0fftd/" target="_blank" rel="noreferrer"><span>02</span><strong>INSTAGRAM</strong><b aria-hidden="true">↗</b></a>
-        <a class="link-row" href="https://github.com/Met0fi" target="_blank" rel="noreferrer"><span>03</span><strong>GITHUB</strong><b aria-hidden="true">↗</b></a>
-        <a class="link-row" href="https://boosty.to/metglitchtd" target="_blank" rel="noreferrer"><span>04</span><strong>BOOSTY</strong><b aria-hidden="true">↗</b></a>
+      <div class="link-list">
+        <a class="link-row" href="https://t.me/metglitch" target="_blank" rel="noreferrer"><strong>Telegram</strong><span class="link-handle">@metglitch</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="link-row" href="https://www.instagram.com/met0fftd/" target="_blank" rel="noreferrer"><strong>Instagram</strong><span class="link-handle">@met0fftd</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="link-row" href="https://github.com/Met0fi" target="_blank" rel="noreferrer"><strong>GitHub</strong><span class="link-handle">Met0fi</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="link-row" href="https://boosty.to/metglitchtd" target="_blank" rel="noreferrer"><strong>Boosty</strong><span class="link-handle">metglitchtd</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     </section>
   </main>
 
   <footer class="footer frame">
-    <p>M/:T / VISUAL + GLITCHCORE</p>
-    <pre aria-hidden="true">(=^･ω･^=)  &lt;3</pre>
-    <a href="#top">TOP [↑]</a>
+    <p>M/:T</p>
+    <pre aria-hidden="true">(=^･ω･^=)</pre>
+    <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
+
+  <dialog class="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-toolbar">
+      <h2 id="viewer-title">Artwork</h2>
+      <button type="button" class="viewer-close" autofocus>Close <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="viewer-stage">
+      <img class="viewer-image" alt="">
+      <p class="viewer-loading" role="status">Loading image…</p>
+      <p class="viewer-error" role="alert" hidden>Couldn’t load this image. <a class="viewer-retry" href="./assets/work-01.webp">Open the original file ↗</a></p>
+    </div>
+    <div class="viewer-bottom">
+      <button type="button" class="viewer-prev" aria-label="Previous artwork">← Previous</button>
+      <p class="viewer-count" aria-live="polite" aria-atomic="true"></p>
+      <button type="button" class="viewer-next" aria-label="Next artwork">Next →</button>
+    </div>
+  </dialog>
 </body>
 </html>
