@@ -14,8 +14,8 @@
   --color-halo-pink: oklch(55% 0.15 335 / 12%);
   --color-halo-cyan: oklch(72% 0.08 205 / 8%);
   --color-scan: oklch(96% 0.01 320 / 2.5%);
-  --color-disc-rule: oklch(62% 0.12 335 / 16%);
-  --color-disc: oklch(10% 0.012 310 / 64%);
+  --color-disc-rule: oklch(62% 0.12 335 / 22%);
+  --color-disc: oklch(10% 0.012 310 / 72%);
   --color-viewer: oklch(17% 0.007 300);
   --color-viewer-ink: oklch(94% 0.009 85);
   --color-viewer-muted: oklch(77% 0.009 85);
@@ -44,7 +44,7 @@
   --text-lead: clamp(1.25rem, 1.03rem + 0.7vw, 1.625rem);
   --text-heading: clamp(1.75rem, 1.25rem + 1.6vw, 2.75rem);
   --text-statement: clamp(2.25rem, 1.7rem + 1.8vw, 4rem);
-  --text-display: clamp(5rem, 1rem + 12vw, 13rem);
+  --text-display: clamp(5.5rem, 2.8rem + 10vw, 16rem);
   --text-outline: clamp(1.375rem, 2.6vw, 2.75rem);
   --dur-ticker: 48s;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -55,6 +55,6 @@
   --rule-thin: 1px;
   --rule-focus: 2px;
   --radius-none: 0;
-  --page-width: 1320px;
-  --page-gutter: clamp(20px, 4vw, 64px);
+  --page-width: 100%;
+  --page-gutter: clamp(24px, 4vw, 80px);
 }
