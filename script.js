@@ -137,6 +137,7 @@ function syncMotionPreference() {
     document.documentElement.style.removeProperty('--cat-shift-x');
     document.documentElement.style.removeProperty('--cat-shift-y');
   }
+  if (!reduced) window.dispatchEvent(new Event('resize'));
 }
 
 function renderHaloPosition() {
